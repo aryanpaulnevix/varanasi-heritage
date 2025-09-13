@@ -1,6 +1,9 @@
 // src/App.jsx
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ReelsPage from "./pages/ReelsPage";
+import ChallengesPage from "./pages/ChallengesPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
@@ -17,6 +20,9 @@ export default function App() {
         <Navbar activePage={activePage} setActivePage={setActivePage} />
         <main className="pt-24 px-6 max-w-7xl mx-auto">
           <Routes>
+            <Route path="/reels" element={<ReelsPage />} />
+            <Route path="/challenges" element={<ChallengesPage />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/places" element={<PlacesPage />} />
