@@ -1,0 +1,220 @@
+{
+  "city": "Varanasi",
+  "summary": "Starter, plug-and-play cultural dataset for Varanasi (2+ entries per category)",
+  "festivals": [
+    {
+      "name": "Ganga Aarti (Dashashwamedh Ghat)",
+      "type": "Ritual / Daily Ceremony",
+      "date": "Daily at sunset",
+      "short_description": "A synchronized evening ritual of lamps and hymns performed on the ghats for the River Ganga.",
+      "image_filename": "ganga_aarti.jpg",
+      "notes": "Performed daily on Dashashwamedh Ghat and major ghats; major spectacle during festivals.",
+      "source_urls": [
+        "https://kashi.gov.in/event/ganga-mahotsav",
+        "https://commons.wikimedia.org/wiki/File:Ganga_aarti_at_Varanasi.jpg"
+      ]
+    },
+    {
+      "name": "Durga Puja",
+      "short_description": "Major festival celebrated with idols and pandals.",
+      "image_filename": "durga_puja.jpg",
+      "notes": "Famous across India, but also celebrated in Varanasi.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Durga_Puja"]
+    },
+    {
+      "name": "Dev Deepawali",
+      "short_description": "Festival of lights celebrated fifteen days after Diwali, with thousands of diyas lit on the ghats of Varanasi.",
+      "image_filename": "dev_deepawali.jpg",
+      "notes": "Unique to Varanasi; attracts lakhs of pilgrims and tourists.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Dev_Diwali"]
+    },
+    {
+      "name": "Mahashivratri",
+      "short_description": "Night dedicated to Lord Shiva, celebrated with special rituals at Kashi Vishwanath Temple.",
+      "image_filename": "mahashivratri.jpg",
+      "notes": "Kashi is one of the holiest places to observe Mahashivratri.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Maha_Shivaratri"]
+    }
+  ],
+  "monuments": [
+    {
+      "name": "Kashi Vishwanath Temple",
+      "short_description": "One of the holiest Shiva temples in India and one of the twelve Jyotirlingas.",
+      "image_filename": "kashi_vishwanath.jpg",
+      "notes": "Historic temple; recent Kashi corridor project improved access.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple"]
+    },
+    {
+      "name": "Ramnagar Fort",
+      "short_description": "18th-century fort and museum on the eastern bank of the Ganges; hosts the traditional Ramlila.",
+      "image_filename": "ramnagar_fort.jpg",
+      "notes": "Historic seat of the erstwhile Kashi royal family.",
+      "source_urls": ["https://timesofindia.indiatimes.com/city/varanasi/centuries-old-ramnagar-ramlila-opens-with-ravans-birth-episode/articleshow/123752047.cms"]
+    },
+    {
+      "name": "Sarnath",
+      "short_description": "Buddhist pilgrimage site where Lord Buddha delivered his first sermon after enlightenment.",
+      "image_filename": "sarnath.jpg",
+      "notes": "Famous for Dhamek Stupa and Ashokan Pillar; 10 km from Varanasi city.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Sarnath"]
+    },
+    {
+      "name": "Sankat Mochan Hanuman Temple",
+      "short_description": "One of the most visited temples in Varanasi, dedicated to Lord Hanuman.",
+      "image_filename": "sankat_mochan.jpg",
+      "notes": "Established by Tulsidas; famous for Tuesday/Saturday crowds and annual music festival.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Sankat_Mochan_Hanuman_Temple,_Varanasi"]
+    },
+    {
+      "name": "Bharat Mata Mandir",
+      "short_description": "Temple housing a marble relief map of undivided India instead of a deity idol.",
+      "image_filename": "bharat_mata_mandir.jpg",
+      "notes": "Inaugurated by Mahatma Gandhi in 1936; unique nationalist shrine.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Bharat_Mata_Temple_(Varanasi)"]
+    }
+  ],
+  "food": [
+    {
+      "name": "Kachori Sabzi",
+      "short_description": "Spicy kachoris served with potato curry, a popular breakfast in Varanasi.",
+      "image_filename": "kachori_sabzi.jpg",
+      "notes": "Best enjoyed at local street stalls in the morning.",
+      "source_urls": ["https://www.holidify.com/pages/kachori-sabzi-500.html"]
+    },
+    {
+      "name": "Malaiyyo",
+      "short_description": "Delicate saffron-flavored frothy milk dessert available only in winters.",
+      "image_filename": "malaiyyo.jpg",
+      "notes": "Also called 'Nimish'; served in kulhads early morning.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Malaiyo"]
+    },
+    {
+      "name": "Lassi",
+      "short_description": "Thick yogurt-based drink served in earthen pots, often topped with rabri.",
+      "image_filename": "lassi.jpg",
+      "notes": "Famous in Godowlia area of Varanasi.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Lassi"]
+    },
+    {
+      "name": "Banarasi Paan",
+      "short_description": "Sweet and savoury betel-leaf preparations unique to Banaras; cultural culinary tradition.",
+      "image_filename": "banarasi_paan.jpg",
+      "notes": "Paan is an iconic culinary finish in Varanasi and has local processing methods.",
+      "source_urls": [
+        "https://kashi.gov.in/cuisine/the-banarasi-paan",
+        "https://www.nabard.org/gi/GIProductDetails.aspx?Id=23"
+      ]
+    }
+  ],
+  "crafts": [
+    {
+      "name": "Banarasi Saree",
+      "short_description": "Handwoven silk sarees with gold and silver brocade, globally renowned.",
+      "image_filename": "banarasi_saree.jpg",
+      "notes": "Essential attire for Indian weddings; GI-tagged craft.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Banarasi_sari"]
+    },
+    {
+      "name": "Wooden Toys",
+      "short_description": "Colorful hand-carved and painted wooden toys made by artisans.",
+      "image_filename": "wooden_toys.jpg",
+      "notes": "Traditional craft of Varanasi, especially popular among children.",
+      "source_urls": ["https://www.gounesco.com/varanasi-wooden-lacquerware-toys/"]
+    },
+    {
+      "name": "Gulabi Meenakari",
+      "short_description": "Rare Persian art of pink enamel work practiced only in Varanasi.",
+      "image_filename": "gulabi_meenakari.jpg",
+      "notes": "Used in jewelry and decorative pieces; only a few families keep it alive.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Meenakari"]
+    },
+    {
+      "name": "Brass & Metalware",
+      "short_description": "Traditional brass lamps, utensils and decorative metalwork made in and around Varanasi.",
+      "image_filename": "varanasi_brassware.jpg",
+      "notes": "Often sold near ghats and markets; used in daily rituals and ceremonies.",
+      "source_urls": ["https://commons.wikimedia.org/wiki/Category:Varanasi"]
+    }
+  ],
+  "stories": [
+    {
+      "title": "Legend of Shiva and the Ganga",
+      "text": "Kashi (Varanasi) is traditionally associated with Lord Shiva; the sacred Ganga flowing through the city is central to many myths where Shiva grants the river descent to Earth.",
+      "image_filename": "legend_shiva_ganga.jpg",
+      "notes": "Short, retellable folktale for app storyteller mode.",
+      "source_urls": ["https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple"]
+    },
+    {
+      "title": "Ramlila at Ramnagar",
+      "text": "A centuries-old open-air Ramlila performance hosted in and around Ramnagar Fort, with traditional staging and community involvement.",
+      "image_filename": "ramlila_ramnagar.jpg",
+      "notes": "Rich theatrical tradition and community event.",
+      "source_urls": ["https://timesofindia.indiatimes.com/city/varanasi/centuries-old-ramnagar-ramlila-opens-with-ravans-birth-episode/articleshow/123752047.cms"]
+    },
+    {
+      "title": "Legend of Manikarnika Ghat",
+      "text": "According to mythology, Goddess Parvati’s earring (Manikarnika) fell here, making the ghat sacred for cremation rituals.",
+      "image_filename": "manikarnika_ghat.jpg",
+      "source_urls": ["https://www.sacredsites.com/asia/india/manikarnika_ghat.html"]
+    },
+    {
+      "title": "Story of Ganga’s Descent",
+      "text": "It is believed that when the River Ganga descended from the heavens, Lord Shiva caught her in his locks at Kashi to soften her flow.",
+      "image_filename": "ganga_descent.jpg",
+      "source_urls": ["https://en.wikipedia.org/wiki/Ganga"]
+    },
+    {
+      "title": "Tale of Raja Harishchandra",
+      "text": "The legendary king Harishchandra worked at the cremation ground of Harishchandra Ghat as part of his devotion to truth and duty.",
+      "image_filename": "raja_harishchandra.jpg",
+      "source_urls": ["https://en.wikipedia.org/wiki/Harishchandra"]
+    }
+  ],
+  "ghats": [
+    {
+      "name": "Dashashwamedh Ghat",
+      "short_description": "One of Varanasi’s oldest and most famous ghats, renowned for the evening Ganga Aarti.",
+      "address": "Dashashwamedh Ghat, near Kashi Vishwanath, Varanasi",
+      "image_filename": "dashashwamedh_ghat.jpg",
+      "latlng": [25.30716889, 83.01033639],
+      "notes": "Main aarti ghat and a major tourist attraction.",
+      "source_urls": ["https://kashi.gov.in/listing-details/dashashwamedh-ghat"]
+    },
+    {
+      "name": "Manikarnika Ghat",
+      "short_description": "Ancient ghat historically used for cremation; considered highly sacred.",
+      "address": "Manikarnika Ghat, Lahori Tola, Varanasi 221001",
+      "image_filename": "manikarnika_ghat.jpg",
+      "latlng": [25.31087056, 83.01408556],
+      "notes": "One of the primary cremation ghats in Kashi with deep religious significance.",
+      "source_urls": ["https://kashi.gov.in/listing-details/manikarnika-ghat"]
+    },
+    {
+      "name": "Assi Ghat",
+      "short_description": "The southernmost popular ghat known for morning bhajans, Subah-e-Banaras sessions and student hangouts.",
+      "address": "Assi Ghat, Nagwa Road, Shivala, Varanasi 221005",
+      "image_filename": "assi_ghat.jpg",
+      "latlng": [25.28864778, 83.00676167],
+      "notes": "Popular with youth and tourists; boat rides are common from here.",
+      "source_urls": ["https://kashi.gov.in/listing-details/assi-ghat"]
+    },
+    {
+      "name": "Harishchandra Ghat",
+      "short_description": "Historic ghat associated with last rites and the legendary King Harishchandra.",
+      "address": "Harishchandra Ghat, near Lahori Tola, Varanasi",
+      "image_filename": "harishchandra_ghat.jpg",
+      "latlng": [25.29832, 83.00719],
+      "notes": "Linked to the legend of Raja Harishchandra; still used for cremation rituals.",
+      "source_urls": ["https://kashi.gov.in/listing-details/harishchand-ghat"]
+    },
+    {
+      "name": "Panchganga Ghat",
+      "short_description": "Sacred ghat where five streams/rivers are believed to meet — a ritual spot for pilgrims.",
+      "address": "Panchganga Ghat, Varanasi",
+      "image_filename": "panchganga_ghat.jpg",
+      "latlng": null,
+      "notes": "Highly sacred spot; good for sunrise views and small pilgrim ceremonies.",
+      "source_urls": ["https://kashi.gov.in/listing-details/panchganga-ghat"]
+    }
+  ]
+}
