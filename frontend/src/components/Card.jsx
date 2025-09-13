@@ -1,23 +1,26 @@
 import React from "react";
 import { getImage } from "../assets/image";
 
-function Card({ title, description, imageFilename, onClick }) {
+export default function Card({ title, description, imageFilename, onClick }) {
+  const imageSrc = imageFilename
+    ? getImage(imageFilename)
+    : "/assets/placeholder.jpg"; // fallback image
+
   return (
     <div
-      className="w-64 h-80 bg-white shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+      className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
+      style={{ height: "400px" }} // uniform height
       onClick={onClick}
     >
       <img
-        src={getImage(imageFilename)}
+        src={imageSrc}
         alt={title}
-        className="w-full h-40 object-cover"
+        className="w-full h-56 object-cover" // uniform aspect ratio
       />
-      <div className="p-4 flex flex-col justify-between h-40">
-        <h2 className="text-lg font-semibold">{title}</h2>
-        <p className="text-sm text-gray-600">{description}</p>
+      <div className="p-4">
+        <h2 className="font-serif font-bold text-lg mb-2">{title}</h2>
+        <p className="text-sm text-gray-700 line-clamp-3">{description}</p>
       </div>
     </div>
   );
 }
-
-export default Card;

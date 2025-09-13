@@ -1,5 +1,6 @@
-// frontend/src/components/ChatbotWidget/ChatbotWidget.jsx
+// src/components/ChatbotWidget/ChatbotWidget.jsx
 import React, { useState, useRef, useEffect } from "react";
+import ChatbotSVG from "../../assets/icons/Chatbot.svg"; // make sure the path is correct
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,19 +26,33 @@ const ChatbotWidget = () => {
     setMessages((prev) => [
       ...prev,
       { sender: "user", text: input },
-      { sender: "bot", text: `You asked: "${input}". I'm still learning! 🤖` },
+      {
+        sender: "bot",
+        text: `You asked: "${input}". I'm still learning! 🤖`,
+      },
     ]);
     setInput("");
   };
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button with SVG */}
       <button
-        className="fixed bottom-6 right-6 bg-yellow-500 text-white px-4 py-3 rounded-full shadow-lg z-50 hover:bg-yellow-600"
         onClick={toggleChat}
+        className="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-yellow-500 shadow-lg z-50 flex items-center justify-center hover:scale-105 transition-transform overflow-hidden"
+        aria-label="Chatbot"
       >
-        ChatBot
+        <img
+          src={ChatbotSVG}
+          alt="Chatbot"
+          className="w-50 h-50"
+          style={{
+            position: "absolute",
+            top: "40%",
+            left: "30%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       </button>
 
       {/* Chat Window */}

@@ -1,13 +1,22 @@
-// src/pages/MapPage.jsx
-
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { getImage } from "../assets/image";
-import data from "../data/varanasi_culture.json";
+import React, { useState } from "react";
+import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// Custom icon generator by color
+import data from "../data/varanasi_culture.json";
+import InfoCard from "../components/InfoCard";
+import { getImage } from "../assets/image";
+
+// Category colors for markers
+const categoryColors = {
+  ghats: "FF5733",
+  monuments: "4287f5",
+  festivals: "f5e642",
+  food: "42f554",
+  crafts: "f542dd",
+};
+
+// Create a simple colored icon
 const createIcon = (color) =>
   new L.Icon({
     iconUrl: `https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|${color}`,
@@ -16,134 +25,101 @@ const createIcon = (color) =>
     popupAnchor: [0, -35],
   });
 
-const VaranasiMap = () => {
+export default function MapPage() {
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = [
+    "all",
+    "ghats",
+    "monuments",
+    "festivals",
+    "food",
+    "crafts",
+  ];
+
+  // Return markers filtered by category
+  const renderMarkers = () => {
+    return categories
+      .filter((cat) => cat === "all" || cat === activeCategory)
+      .flatMap((cat) => {
+        const items =
+          cat === "all"
+            ? [].concat(
+                data.ghats,
+                data.monuments,
+                data.festivals,
+                data.food,
+                data.crafts
+              )
+            : data[cat];
+        return items.map((item, idx) => {
+          const latlng = item.latlng || [
+            25.3176 + 0.002 * idx,
+            82.9739 + 0.002 * idx,
+          ]; // fallback positions
+
+          return (
+            <Marker
+              key={`${cat}-${idx}`}
+              position={latlng}
+              icon={createIcon(categoryColors[cat] || "000000")}
+              eventHandlers={{
+                click: () => setSelectedItem(item),
+              }}
+            >
+              <Tooltip>{item.name}</Tooltip>
+            </Marker>
+          );
+        });
+      });
+  };
+
   return (
-    <div className="pt-20 px-6">
-      {" "}
-      {/* pushes content below navbar */}
-      <div className="w-full h-[80vh] rounded-lg overflow-hidden shadow-lg">
+    <div className="flex flex-col lg:flex-row gap-4 pb-16 relative">
+      {/* Sidebar */}
+      <div className="lg:w-1/4 w-full p-4 z-10">
+        <h1 className="text-2xl font-bold font-serif text-[#7B2D26] mb-4">
+          Selected Item
+        </h1>
+
+        {/* Category filter buttons */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-3 py-1 rounded ${
+                activeCategory === cat
+                  ? "bg-[#F2A007] text-[#7B2D26]"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Info Card */}
+        <InfoCard item={selectedItem} />
+      </div>
+
+      {/* Map */}
+      <div className="lg:w-3/4 w-full h-[70vh] relative z-0">
         <MapContainer
-          center={[25.3176, 82.9739]} // Varanasi center
+          center={[25.3176, 82.9739]}
           zoom={13}
           scrollWheelZoom={true}
-          className="h-full w-full"
+          className="h-full w-full rounded-lg shadow-md"
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           />
 
-          {/* Ghats */}
-          {data.ghats.map(
-            (ghat, index) =>
-              ghat.latlng && (
-                <Marker
-                  key={`ghat-${index}`}
-                  position={ghat.latlng}
-                  icon={createIcon("FF5733")}
-                >
-                  <Popup>
-                    <div className="w-48">
-                      <img
-                        src={getImage(ghat.image_filename)}
-                        alt={ghat.name}
-                        className="w-full h-32 object-cover mb-2 rounded"
-                      />
-                      <h2 className="font-bold">{ghat.name}</h2>
-                      <p>{ghat.short_description}</p>
-                    </div>
-                  </Popup>
-                </Marker>
-              )
-          )}
-
-          {/* Monuments */}
-          {data.monuments.map((monument, index) => (
-            <Marker
-              key={`monument-${index}`}
-              position={[25.3176 + 0.002 * index, 82.9739 + 0.002 * index]}
-              icon={createIcon("4287f5")}
-            >
-              <Popup>
-                <div className="w-48">
-                  <img
-                    src={getImage(monument.image_filename)}
-                    alt={monument.name}
-                    className="w-full h-32 object-cover mb-2 rounded"
-                  />
-                  <h2 className="font-bold">{monument.name}</h2>
-                  <p>{monument.short_description}</p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-
-          {/* Festivals */}
-          {data.festivals.map((festival, index) => (
-            <Marker
-              key={`festival-${index}`}
-              position={[25.3176 + 0.003 * index, 82.9739 - 0.002 * index]}
-              icon={createIcon("f5e642")}
-            >
-              <Popup>
-                <div className="w-48">
-                  <img
-                    src={getImage(festival.image_filename)}
-                    alt={festival.name}
-                    className="w-full h-32 object-cover mb-2 rounded"
-                  />
-                  <h2 className="font-bold">{festival.name}</h2>
-                  <p>{festival.short_description}</p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-
-          {/* Food */}
-          {data.food.map((food, index) => (
-            <Marker
-              key={`food-${index}`}
-              position={[25.3176 - 0.002 * index, 82.9739 + 0.003 * index]}
-              icon={createIcon("42f554")}
-            >
-              <Popup>
-                <div className="w-48">
-                  <img
-                    src={getImage(food.image_filename)}
-                    alt={food.name}
-                    className="w-full h-32 object-cover mb-2 rounded"
-                  />
-                  <h2 className="font-bold">{food.name}</h2>
-                  <p>{food.short_description}</p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-
-          {/* Crafts */}
-          {data.crafts.map((craft, index) => (
-            <Marker
-              key={`craft-${index}`}
-              position={[25.3176 - 0.003 * index, 82.9739 - 0.002 * index]}
-              icon={createIcon("f542dd")}
-            >
-              <Popup>
-                <div className="w-48">
-                  <img
-                    src={getImage(craft.image_filename)}
-                    alt={craft.name}
-                    className="w-full h-32 object-cover mb-2 rounded"
-                  />
-                  <h2 className="font-bold">{craft.name}</h2>
-                  <p>{craft.short_description}</p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
+          {renderMarkers()}
         </MapContainer>
       </div>
     </div>
   );
-};
-
-export default VaranasiMap;
+}
