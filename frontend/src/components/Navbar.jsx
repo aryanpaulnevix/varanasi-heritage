@@ -1,27 +1,51 @@
 // src/components/Navbar.jsx
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation(); // To detect Reels page
   const [openDropdown, setOpenDropdown] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(false);
+
+  const [showDesktopNav, setShowDesktopNav] = useState(true);
 
   const handleSearch = (e) => {
     e.preventDefault();
     const query = e.target.search.value.toLowerCase();
-    if (query === "varanasi") {
-      navigate("/places/varanasi");
-    }
+    if (query === "varanasi") navigate("/places/varanasi");
   };
+
+  // Auto-hide navbar only on Reels page for desktop
+  useEffect(() => {
+    if (location.pathname !== "/reels") {
+      setShowDesktopNav(true);
+      return;
+    }
+
+    const handleMouseMove = (e) => {
+      // Show navbar if cursor near top 60px
+      if (e.clientY < 60) setShowDesktopNav(true);
+      else setShowDesktopNav(false);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [location.pathname]);
 
   return (
     <>
-      {/* ✅ Top Navbar (Desktop) */}
-      <nav className="hidden md:flex justify-between items-center bg-[#7B2D26] text-white px-8 py-4 shadow-md relative">
+      {/* Desktop Navbar */}
+      <nav
+        className={`hidden md:flex justify-between items-center bg-[#7B2D26] text-white px-8 py-4 shadow-md fixed top-0 left-0 right-0 z-50 transition-opacity duration-300 ${
+          showDesktopNav
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
         {/* Logo */}
         <Link to="/" className="text-xl font-bold tracking-wide">
-          Heritage Explorer
+          Sanskruti Setu
         </Link>
 
         {/* Links */}
@@ -63,6 +87,9 @@ export default function Navbar() {
           <Link to="/leaderboard" className="hover:text-yellow-300 transition">
             Leaderboard
           </Link>
+          <Link to="/community" className="hover:text-yellow-300 transition">
+            Community
+          </Link>
           <Link to="/about" className="hover:text-yellow-300 transition">
             About Us
           </Link>
@@ -79,7 +106,7 @@ export default function Navbar() {
         </form>
       </nav>
 
-      {/* ✅ Bottom Navbar (Mobile) */}
+      {/* Mobile Navbar */}
       <nav className="fixed md:hidden bottom-0 left-0 right-0 bg-[#7B2D26] text-white flex justify-around py-3 shadow-inner z-50">
         <Link to="/" className="flex flex-col items-center">
           Home
@@ -117,6 +144,9 @@ export default function Navbar() {
         </Link>
         <Link to="/leaderboard" className="flex flex-col items-center">
           Leaderboard
+        </Link>
+        <Link to="/community" className="flex flex-col items-center">
+          Community
         </Link>
         <Link to="/about" className="flex flex-col items-center">
           About

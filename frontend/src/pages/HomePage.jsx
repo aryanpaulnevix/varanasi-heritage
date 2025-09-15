@@ -2,14 +2,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import homepageBg from "../assets/background/background_image.jpg";
- // make sure you have this image
 
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-[70vh] text-center bg-cover bg-center"
+      className="flex flex-col items-center justify-center min-h-screen w-full text-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${homepageBg})` }}
     >
       <h1 className="text-5xl font-bold mb-6 text-[#7B2D26] text-center bg-white/70 px-4 py-2 rounded">

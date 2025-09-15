@@ -23,7 +23,9 @@ export default function CityPage() {
 
   return (
     <div className="pt-6 max-w-7xl mx-auto px-4">
-      <h1 className="text-3xl font-bold mb-6">{cityName} - Explore</h1>
+      <h1 className="text-3xl font-bold mb-6">
+        {cityName.charAt(0).toUpperCase() + cityName.slice(1)} - Explore
+      </h1>
 
       {/* Subcategory buttons */}
       <div className="flex flex-wrap gap-3 mb-6">
@@ -52,10 +54,10 @@ export default function CityPage() {
           {cityData[activeCategory].map((item, idx) => (
             <Card
               key={idx}
-              title={item.name}
-              description={item.short_description}
+              title={item.name || item.title}
+              description={item.short_description || item.text}
               imageFilename={item.image_filename}
-              onClick={() => console.log(`Clicked ${item.name}`)}
+              link={item.source_urls ? item.source_urls[0] : null} // ✅ pass first URL
             />
           ))}
         </div>
@@ -67,4 +69,3 @@ export default function CityPage() {
     </div>
   );
 }
-

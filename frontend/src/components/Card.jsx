@@ -1,16 +1,22 @@
 import React from "react";
 import { getImage } from "../assets/image";
 
-export default function Card({ title, description, imageFilename, onClick }) {
+export default function Card({ title, description, imageFilename, link }) {
   const imageSrc = imageFilename
     ? getImage(imageFilename)
     : "/assets/placeholder.jpg"; // fallback image
+
+  const handleClick = () => {
+    if (link) {
+      window.open(link, "_blank"); // ✅ open in new tab
+    }
+  };
 
   return (
     <div
       className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
       style={{ height: "400px" }} // uniform height
-      onClick={onClick}
+      onClick={handleClick}
     >
       <img
         src={imageSrc}
